@@ -2,7 +2,7 @@
 
 # Codex
 
-**Versión:** `0.3.2` · [Changelog](CHANGELOG.md) · [VERSION](VERSION)
+**Versión:** `0.3.3` · [Changelog](CHANGELOG.md) · [VERSION](VERSION)
 
 ## Conversaciones guardadas
 
@@ -10,7 +10,7 @@ Xpeed 0.9.1 guarda chats, títulos editables, borradores, modelo y preferencia d
 
 Después de reiniciar selecciona las sesiones actuales de terminal. No se restauran tokens de autorización ni aprobaciones pendientes. El proveedor oficial sigue gestionando las credenciales. El uso de la cuenta aparece debajo del listado de conversaciones.
 
-Extensión opcional **0.3.2** para **XPEED 0.9.1+**. Codex se ejecuta en tu equipo con acceso oficial de ChatGPT desde el navegador. No pide API key ni instala Codex en servidores SSH. [English](README.md).
+Extensión opcional **0.3.3** para **XPEED 0.9.1+**. Codex se ejecuta en tu equipo con acceso oficial de ChatGPT desde el navegador. No pide API key ni instala Codex en servidores SSH. [English](README.md).
 
 ![Codex trabajando con una terminal SSH seleccionada en XPEED](assets/screenshots/conversation.png)
 
@@ -22,7 +22,7 @@ Extensión opcional **0.3.2** para **XPEED 0.9.1+**. Codex se ejecuta en tu equi
 4. Abre una terminal local o SSH. En **Sesiones seleccionadas**, en la cabecera del chat, marca uno o varios destinos y revisa sus nombres, IDs e IPs.
 5. Pide una comprobación: «En la sesión seleccionada, ejecuta pwd con directorio explícito e informa salida, errores y código de salida». Aprueba la tarjeta. También puedes autorizar comandos y cambios para toda esa tarea antes de enviarla.
 
-Requiere **codex-cli 0.162.0-alpha.2 / 0.162.0-alpha.17.2**, versión cuyo esquema experimental se verificó. Otras versiones muestran un error de compatibilidad. El runtime oficial se instala aparte en tu equipo; el adaptador es un ejecutable Rust independiente.
+Admite **codex-cli 0.162.0-alpha.2 / 0.162.0-alpha.17.2 / 0.164.0-alpha.11.1**, versiones cuyo esquema experimental se verificó. Otras versiones muestran un error de compatibilidad. El runtime oficial se instala aparte en tu equipo; el adaptador es un ejecutable Rust independiente.
 
 La cuenta se guarda mediante el mecanismo oficial en un perfil propio: `%APPDATA%/xpeed/providers/codex-home` en Windows; `$XDG_DATA_HOME/xpeed/providers/codex-home`, normalmente `~/.local/share/...`, en Unix. No reutiliza otras instalaciones: inicia sesión una vez aquí. No añadas MCP, hooks ni otras integraciones a este perfil administrado. El puente no expone tokens. Modelos y límites se consultan al proveedor.
 

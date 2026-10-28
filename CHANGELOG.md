@@ -4,6 +4,11 @@ La versión corresponde al adaptador, independiente de la versión de Xpeed y de
 
 ## Sin publicar
 
+## 0.3.3 — 2026-10-28
+
+- Compatibilidad verificada con `codex-cli 0.164.0-alpha.11.1`, distribuido por la extensión oficial de Codex para VS Code.
+- Se conservan la validación estricta del runtime y el aislamiento de herramientas, configuración y credenciales del proveedor.
+
 ## 0.3.2 — 2026-10-15
 
 - Logo vectorial y captura del flujo de conversación incluidos en el repositorio y en la ficha Markdown.

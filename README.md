@@ -2,7 +2,7 @@
 
 # Codex
 
-**Version:** `0.3.2` · [Changelog](CHANGELOG.md) · [VERSION](VERSION)
+**Version:** `0.3.3` · [Changelog](CHANGELOG.md) · [VERSION](VERSION)
 
 ## Saved conversations
 
@@ -10,7 +10,7 @@ Xpeed 0.9.1 saves chats, editable titles, drafts, model and task-access preferen
 
 Select current terminal sessions again after restarting. Live scope tokens and pending approvals are never restored. Provider credentials remain managed by the official Codex runtime. Account usage appears below the conversation list.
 
-Optional extension **0.3.2** for **XPEED 0.9.1+**. Codex runs on your computer with official ChatGPT browser sign-in. No API key or remote Codex installation is required. [Español](README.es.md).
+Optional extension **0.3.3** for **XPEED 0.9.1+**. Codex runs on your computer with official ChatGPT browser sign-in. No API key or remote Codex installation is required. [Español](README.es.md).
 
 ![Codex working with a selected SSH terminal in XPEED](assets/screenshots/conversation.png)
 
@@ -22,7 +22,7 @@ Optional extension **0.3.2** for **XPEED 0.9.1+**. Codex runs on your computer w
 4. Open local or SSH terminals and use **Selected sessions** in the chat header to explicitly choose one or several destinations. Review their names, IDs and hosts in that menu.
 5. Ask for a check, for example: “On the selected session, run pwd with an explicit working directory and report stdout, stderr and exit code.” Approve the action card, or grant commands and edits for that task before sending.
 
-The supported runtime is **codex-cli 0.162.0-alpha.2 / 0.162.0-alpha.17.2**. Experimental dynamic tools are pinned to the version whose schema was verified. Other versions display a compatibility error. Install a compatible official runtime separately on your computer. The extension is a separate Rust executable; XPEED never installs Codex on SSH servers.
+The supported runtimes are **codex-cli 0.162.0-alpha.2 / 0.162.0-alpha.17.2 / 0.164.0-alpha.11.1**. Experimental dynamic tools are pinned to versions whose schema was verified. Other versions display a compatibility error. Install a compatible official runtime separately on your computer. The extension is a separate Rust executable; XPEED never installs Codex on SSH servers.
 
 Official credentials and configuration use a dedicated CODEX_HOME: `%APPDATA%/xpeed/providers/codex-home` on Windows; `$XDG_DATA_HOME/xpeed/providers/codex-home`, default `~/.local/share/...`, on Unix. This does not reuse other Codex logins; sign in once here. Do not add MCP servers, hooks or other integrations to this managed profile. The bridge does not expose tokens. Models and account usage come from Codex.
 

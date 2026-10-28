@@ -1,7 +1,8 @@
 //! Experimental app-server dynamic-tool contract, with explicitly verified runtimes.
 use serde_json::{Value, json};
 pub const RUNTIME_VERSION: &str = "0.162.0-alpha.2";
-pub const SUPPORTED_RUNTIMES: &[&str] = &[RUNTIME_VERSION, "0.162.0-alpha.17.2"];
+pub const SUPPORTED_RUNTIMES: &[&str] =
+    &[RUNTIME_VERSION, "0.162.0-alpha.17.2", "0.164.0-alpha.11.1"];
 pub fn supports_runtime(version: &str) -> bool {
     version
         .trim()
@@ -81,6 +82,7 @@ mod tests {
     fn supports_verified_runtime_updates_only() {
         assert!(supports_runtime("codex-cli 0.162.0-alpha.2\n"));
         assert!(supports_runtime("codex-cli 0.162.0-alpha.17.2"));
+        assert!(supports_runtime("codex-cli 0.164.0-alpha.11.1"));
         assert!(!supports_runtime("codex-cli 0.162.0-alpha.99"));
         assert!(!supports_runtime("other-cli 0.162.0-alpha.17.2"));
     }
