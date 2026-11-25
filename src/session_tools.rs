@@ -1,13 +1,36 @@
-//! Experimental app-server dynamic-tool contract, with explicitly verified runtimes.
+//! Experimental app-server dynamic-tool contract.
 use serde_json::{Value, json};
-pub const RUNTIME_VERSION: &str = "0.162.0-alpha.2";
-pub const SUPPORTED_RUNTIMES: &[&str] =
-    &[RUNTIME_VERSION, "0.162.0-alpha.17.2", "0.164.0-alpha.11.1"];
+pub const MINIMUM_RUNTIME: &str = "0.162.0-alpha.2";
 pub fn supports_runtime(version: &str) -> bool {
-    version
-        .trim()
-        .strip_prefix("codex-cli ")
-        .is_some_and(|version| SUPPORTED_RUNTIMES.contains(&version))
+    let Some(version) = version.trim().strip_prefix("codex-cli ") else {
+        return false;
+    };
+    let Some((release, prerelease)) = version.split_once('-') else {
+        return false;
+    };
+    let mut release = release.split('.').map(str::parse::<u64>);
+    let (Some(Ok(major)), Some(Ok(minor)), Some(Ok(patch)), None) = (
+        release.next(),
+        release.next(),
+        release.next(),
+        release.next(),
+    ) else {
+        return false;
+    };
+    if major != 0 || (minor, patch) < (162, 0) {
+        return false;
+    }
+    if (minor, patch) > (162, 0) {
+        return prerelease.starts_with("alpha.");
+    }
+    let Some(alpha) = prerelease.strip_prefix("alpha.") else {
+        return false;
+    };
+    alpha
+        .split('.')
+        .next()
+        .and_then(|part| part.parse::<u64>().ok())
+        .is_some_and(|alpha| alpha >= 2)
 }
 pub fn definitions() -> Value {
     let session = json!({"type":"integer","minimum":1});
@@ -79,11 +102,17 @@ pub fn thread_params(cwd: &str, scope: &Value) -> Value {
 mod tests {
     use super::*;
     #[test]
-    fn supports_verified_runtime_updates_only() {
+    fn supports_compatible_runtime_updates() {
         assert!(supports_runtime("codex-cli 0.162.0-alpha.2\n"));
         assert!(supports_runtime("codex-cli 0.162.0-alpha.17.2"));
         assert!(supports_runtime("codex-cli 0.164.0-alpha.11.1"));
-        assert!(!supports_runtime("codex-cli 0.162.0-alpha.99"));
+        assert!(supports_runtime("codex-cli 0.171.0-alpha.13.2"));
+        assert!(supports_runtime("codex-cli 0.172.0-alpha.1"));
+        assert!(!supports_runtime("codex-cli 0.162.0-alpha.1"));
+        assert!(!supports_runtime("codex-cli 0.161.0-alpha.99"));
+        assert!(!supports_runtime("codex-cli 0.171.0-beta.1"));
+        assert!(!supports_runtime("codex-cli 1.0.0-alpha.1"));
+        assert!(!supports_runtime("codex-cli not-a-version"));
         assert!(!supports_runtime("other-cli 0.162.0-alpha.17.2"));
     }
     #[test]

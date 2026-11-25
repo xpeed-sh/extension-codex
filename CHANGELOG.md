@@ -4,6 +4,10 @@ La versión corresponde al adaptador, independiente de la versión de Xpeed y de
 
 ## Sin publicar
 
+## 0.3.4 — 2026-11-25
+
+- Codex CLI `0.171.0-alpha.13.2` y futuras versiones alfa compatibles ya no quedan bloqueadas por una lista cerrada. El adaptador exige como mínimo `0.162.0-alpha.2` y conserva la validación de identidad y formato del runtime.
+
 ## 0.3.3 — 2026-10-28
 
 - Compatibilidad verificada con `codex-cli 0.164.0-alpha.11.1`, distribuido por la extensión oficial de Codex para VS Code.

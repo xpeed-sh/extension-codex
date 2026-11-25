@@ -94,7 +94,7 @@ checksum = "a2c754d6c33795a1c324727428e5a7dedb5b06195f9890bdbcba760d3e246563"
 
 [[package]]
 name = "xpeed-codex-extension"
-version = "0.3.3"
+version = "0.3.4"
 dependencies = [
  "serde_json",
  "xpeed-i18n",

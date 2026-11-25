@@ -178,9 +178,9 @@ impl Adapter {
         let version = String::from_utf8_lossy(&version.stdout);
         if !session_tools::supports_runtime(&version) {
             return Err(xpeed_i18n::format(
-                "Codex requires Codex {version} for scoped session tools. Detected: {detected}. Configure its executable in Extensions.",
+                "Codex requires Codex {version} or newer for scoped session tools. Detected: {detected}. Configure its executable in Extensions.",
                 &[
-                    ("version", session_tools::SUPPORTED_RUNTIMES.join(" / ")),
+                    ("version", session_tools::MINIMUM_RUNTIME.into()),
                     ("detected", version.trim().into()),
                 ],
             ));
