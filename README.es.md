@@ -2,7 +2,7 @@
 
 # Codex
 
-**Versión:** `0.3.4` · [Changelog](CHANGELOG.md) · [VERSION](VERSION)
+**Versión:** `0.3.5` · [Changelog](CHANGELOG.md) · [VERSION](VERSION)
 
 ## Conversaciones guardadas
 
@@ -10,11 +10,13 @@ Xpeed 0.9.1 guarda chats, títulos editables, borradores, modelo y preferencia d
 
 Después de reiniciar selecciona las sesiones actuales de terminal. No se restauran tokens de autorización ni aprobaciones pendientes. El proveedor oficial sigue gestionando las credenciales. El uso de la cuenta aparece debajo del listado de conversaciones.
 
-Extensión opcional **0.3.4** para **XPEED 0.9.1+**. Codex se ejecuta en tu equipo con acceso oficial de ChatGPT desde el navegador. No pide API key ni instala Codex en servidores SSH. [English](README.md).
+Extensión opcional **0.3.5** para **XPEED 0.9.1+**. Codex se ejecuta en tu equipo con acceso oficial de ChatGPT desde el navegador. No pide API key ni instala Codex en servidores SSH. [English](README.md).
 
 ![Codex trabajando con una terminal SSH seleccionada en XPEED](assets/screenshots/conversation.png)
 
 ## Instalar y usar
+
+En Xpeed 0.12.0 puedes seleccionar y copiar partes de preguntas y respuestas. Haz clic derecho en el panel de Codex para seleccionar sesiones o iniciar un chat con el contexto de la conversación actual. Al pegar más de 80 líneas o 4.000 caracteres, el texto se añade como adjunto temporal.
 
 1. En **Extensiones**, instala **Codex** y pulsa **Abrir extensión**.
 2. Si no encuentra el runtime, configura el ejecutable local en la ficha. Busca en PATH y en la extensión oficial de VS Code.
